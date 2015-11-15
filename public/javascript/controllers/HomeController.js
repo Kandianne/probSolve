@@ -3,10 +3,17 @@
 	angular.module('app')
 	.controller('HomeController', HomeController);
 
-	HomeController.$inject = [];
+	HomeController.$inject = ['$state', '$modal'];
 
-	function HomeController() {
+	function HomeController($state, $modal) {
 		var vm = this;
-		vm.title = 'Welcome to our App!';
+
+		vm.problemModal = function(){
+
+		};
+
+		vm.solutionModal = function(){
+
+		};
 	}
 })();
