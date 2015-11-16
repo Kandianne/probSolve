@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular.module('app', ['ui.router', 'ngMaterial', 'ui.bootstrap'])
+	angular.module('app', ['ui.router', 'ngMaterial'])
 	.config(Config);
 	Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 	function Config($stateProvider, $urlRouterProvider) {
@@ -14,6 +14,10 @@
 			url: '/solutions',
 			templateUrl: 'views/solutions.html'
 		});
-		$urlRouterProvider.otherwise('/');
-	}
+		// state('CreateProblem',{
+		// 	url: '/createProblem',
+		// 	templateUrl: 'views/createProblem.html'
+		// });
+$urlRouterProvider.otherwise('/');
+}
 })();

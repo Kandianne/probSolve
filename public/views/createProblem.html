@@ -1,0 +1,27 @@
+<md-dialog aria-label="What is a problem you thinks should be solved?"  ng-cloak>
+<div layout layout-sm="column">
+	<form>
+		<md-input-container>
+		<label>
+			Title of Problem
+		</label>
+		<input type="text" ng-model="problem.title">
+	</md-input-container>
+	<md-input-container>
+	<label>
+		Description
+	</label>
+	<input type="text" ng-model="problem.description">
+</md-input-container>
+<md-input-container>
+<label>
+	How serious is this problem on a scale of 1 - 10?
+</label>
+<input type="number" ng-model="problem.title">
+</md-input-container>
+
+
+<md-button class="md-raised" ng-click="vm.createProblem()">content</md-button>
+</form>
+</div>
+</md-dialog>
