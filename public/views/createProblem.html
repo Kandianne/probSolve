@@ -1,27 +1,37 @@
-<md-dialog aria-label="What is a problem you thinks should be solved?"  ng-cloak>
-<div layout layout-sm="column">
+<md-dialog aria-label="What is a solution you think would solve a problem?"  ng-cloak>
+<md-toolbar><div class="md-toolbar-tools"><h1>What is a solution you think would solve a problem?</h1></div></md-toolbar>
+<div>
 	<form>
 		<md-input-container>
 		<label>
-			Title of Problem
+			Title of Solution
 		</label>
-		<input type="text" ng-model="problem.title">
+		<input type="text" ng-model="vm.solution.title">
 	</md-input-container>
 	<md-input-container>
 	<label>
 		Description
 	</label>
-	<input type="text" ng-model="problem.description">
+	<input type="text" ng-model="vm.solution.description">
 </md-input-container>
 <md-input-container>
 <label>
-	How serious is this problem on a scale of 1 - 10?
+	HOW HARD DO YOU THINK IT IS TO IMPLEMENT THIS SOLUTION?
 </label>
 <input type="number" ng-model="problem.title">
 </md-input-container>
 
-
+<md-input-container>
+<label>State</label>
+<md-select ng-model="ctrl.userState">
+<md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">
+{{state.abbrev}}
+</md-option>
+</md-select>
+</md-input-container>
 <md-button class="md-raised" ng-click="vm.createProblem()">content</md-button>
 </form>
 </div>
 </md-dialog>
+
+<md-dialog aria-label="What is a solution you think would solve a problem?" ng-cloak><md-toolbar><div class="md-toolbar-tools"><h1>What is a solution you think would solve a problem?</h1></div></md-toolbar><div><form ng-submit="vm.createSolution()"><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>TITLE OF SOLUTION</label><input type="text" ng-model="vm.problem.title"></md-input-container><md-input-container><label>DESCRIPTION</label><input type="text" ng-model="vm.problem.description"></md-input-container><md-input-container><label>IS IT HARD TO IMPLEMENT THIS SOLUTION?</label><md-select ng-model="vm.solution.level"><md-option>VERY HARD</md-option></md-select><md-select><label>THIS SOLUTION IS RELATED TO WHAT PROBLEM?</label><md-select ng-model="vm.solution.problems"><md-option ng-repeat="p in vm.problems" value="{{p.category}}"></md-option></md-select></md-input-container></md-dialog-content><md-button class="md-raised" type="submit" >POST</md-button></form></div></md-dialog>

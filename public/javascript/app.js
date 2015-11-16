@@ -14,10 +14,6 @@
 			url: '/solutions',
 			templateUrl: 'views/solutions.html'
 		});
-		// state('CreateProblem',{
-		// 	url: '/createProblem',
-		// 	templateUrl: 'views/createProblem.html'
-		// });
-$urlRouterProvider.otherwise('/');
-}
+		$urlRouterProvider.otherwise('/');
+	}
 })();

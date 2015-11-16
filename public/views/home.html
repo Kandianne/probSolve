@@ -1,5 +1,5 @@
 <div  ng-controller="HomeController as vm">
-	<div layout layout-sm="column">
+	<div layout layout-sm="column" class="mainHome">
 		<div flex>
 			PROBLEMS
 		</div>
@@ -19,7 +19,7 @@
 		</div>
 
 		<div flex>
-			<md-button class="md-raised" ng-click="vm.solutionModal()">Post solutions</md-button>
+			<md-button class="md-raised" ng-click="vm.solutionModal($event)">Post solutions</md-button>
 		</div>
 	</div>
 </div>

@@ -9,22 +9,15 @@
 		var vm = this;
 		var alert;
 
-		console.log('12 homecontrol');
 
 		vm.problemModal = function($event){
-
 			var parentE1 = angular.element(document.querySelector('md-content'));
 
-			console.log('18 homecontrol');
 			alert = $mdDialog.alert({
-				template: '<md-dialog aria-label="What is a problem you think should be solved?"  ng-cloak><div layout layout-sm="column"><form><md-dialog-content style="max-width:800px;max-height:810px; "><md-input-container><label>Title of Problem</label><input type="text" ng-model="problem.title"></md-input-container><md-input-container><label>Description</label><input type="text" ng-model="problem.description"></md-input-container><md-input-container><label>How serious is this problem on a scale of 1 - 10?</label><input type="number" ng-model="problem.title"></md-input-container></md-dialog-content><md-button class="md-raised" ng-click="vm.createProblem()">content</md-button></form></div></md-dialog>',
+				template: '<md-dialog  aria-label="What is a problem you think should be solved?"  ng-cloak><md-toolbar><div  class="md-toolbar-tools"><h1>What is a problem you think should be solved?</h1></div></md-toolbar><div><form ng-submit="vm.createProblem()"><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>TITLE OF PROBLEM</label><input type="text" ng-model="vm.problem.title"></md-input-container><md-input-container><label>DESCRIPTION</label><input type="text" ng-model="vm.problem.description"></md-input-container><md-input-container><label>FROM 1 to 10 HOW SERIOUS IS THIS PROBLEM?</label><input type="number" ng-model="vm.problem.level"></md-input-container></md-dialog-content><md-button class="md-raised" type="submit" >POST</md-button></form></div></md-dialog>',
 				parent: parentE1,
 				targetEvent: $event,
 				clickOutsideToClose:true,
-				locals: {
-					items: vm.items,
-					closeDialog: vm.closeDialog
-				},
 				bindToController: true,
 				controllerAs: 'vm',
 				controller: 'ModalFunctionsController'
@@ -32,44 +25,30 @@
 			$mdDialog
 			.show( alert )
 			.finally(function() {
+				console.log("homectrl 2nd dialog func")
 				alert = undefined;
 			});
 		}
 
-		function showDialog($event) {
-			var parentEl = angular.element(document.querySelector('md-content'));
+		vm.solutionModal = function($event){
+			var parentE1 = angular.element(document.querySelector('md-content'));
+
 			alert = $mdDialog.alert({
-				parent: parentEl,
+				template: '<md-dialog aria-label="What is a solution you think would solve a problem?" ng-cloak><md-toolbar><div class="md-toolbar-tools"><h1>What is a solution you think would solve a problem?</h1></div></md-toolbar><div><form><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>TITLE OF SOLUTION</label><input type="text" ng-model="vm.solution.title"></md-input-container><md-input-container><label>DESCRIPTION</label><input type="text" ng-model="vm.solution.description"></md-input-container><md-input-container><label>HOW HARD IS THIS SOLUTION TO IMPLEMENT?</label><md-select ng-model="vm.solution.description"><md-option>VERY HARD</md-option><md-option>KINDA HARD</md-option></md-select></md-input-container></md-dialog-content><md-button class="md-raised" ng-click="vm.createSolution()">POST</md-button></form></div></md-dialog>',
+				parent: parentE1,
 				targetEvent: $event,
-				template:
-				'<md-dialog aria-label="Sample Dialog">' +
-				'  <md-content>'+
-				'    <md-list>'+
-				'      <md-item ng-repeat="item in ctrl.items">'+
-				'       <p>{{item}}</p>' +
-				'      </md-item>'+
-				'    </md-list>'+
-				'  </md-content>' +
-				'  <div class="md-actions">' +
-				'    <md-button ng-click="ctrl.closeDialog()">' +
-				'      Close Greeting' +
-				'    </md-button>' +
-				'  </div>' +
-				'</md-dialog>',
-				locals: {
-					items: $scope.items,
-					closeDialog: $scope.closeDialog
-				},
+				clickOutsideToClose:true,
 				bindToController: true,
-				controllerAs: 'ctrl',
-				controller: 'DialogController'
+				controllerAs: 'vm',
+				controller: 'ModalFunctionsController'
 			});
-			$mdDialog
-			.show( alert )
-			.finally(function() {
-				alert = undefined;
-			});
-		}
-
-	}
+$mdDialog
+.show( alert )
+.finally(function() {
+	console.log("homectrl 2nd dialog func")
+	alert = undefined;
+});
+}
+}
 })();
+
