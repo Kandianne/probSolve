@@ -4,8 +4,21 @@ body, html {
 	background: #FC354C; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to left, #0ABFBC, #FC354C); /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to left, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	height: 100%;
 }
 
 .mainHome {
-	height: 39em;
+	padding-top: 16%;
+	padding-bottom: 16%;
+}
+
+/*=================LOGIN STUFF============================*/
+.loginBtn {
+	border: thin solid white;
+	color: white;
+}
+
+.anonBtn {
+	border: thin solid black;
+	color: black;
 }
