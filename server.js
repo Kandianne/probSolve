@@ -3,6 +3,14 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
+var mongoose = require('mongoose');
+var passport = require('passport');
+
+//==================REQUIRE ROUTES HERE=======================================
+require("./Models/ProblemsModel"); 
+require("./Models/SolutionsModel"); 
+require("./Models/UserModel"); 
+require("./Models/CategoriesModel"); 
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -21,10 +29,17 @@ app.set('view options', {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+//====================DEFINING ROUTE MODULES=================================
+var problemsRoutes = require("./Routes/ProblemsRoutes");
+// var solutionsRoutes = require("./Routes/SolutionsRoutes");
+// var userRoutes = require("./Routes/UserRoutes");
+
 //on homepage load, render the index page
 app.get('/', function(req, res) {
 	res.render('index');
 });
+
+app.use("/api/problems", problemsRoutes);
 
 var server = app.listen(port, function() {
 	var host = server.address().address;

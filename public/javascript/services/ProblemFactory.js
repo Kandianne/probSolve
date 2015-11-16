@@ -12,7 +12,7 @@
 		p.postProblem = function(probObj){
 			console.log(probObj);
 			var q = $q.defer();
-			$http.post("api/problem/", probObj).success(function(){
+			$http.post("api/problems/", probObj).success(function(){
 				q.resolve(res);
 			})
 		}

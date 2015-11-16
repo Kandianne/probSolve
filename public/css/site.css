@@ -8,17 +8,27 @@ body, html {
 }
 
 .mainHome {
-	padding-top: 16%;
-	padding-bottom: 16%;
+	padding-top: 13%;
+	padding-bottom: 13%;
 }
+
+/*=================MAIN BUTTONS============================*/
+#posts .md-raised {
+	font-weight: bold;
+	padding: 1em;
+}
+
 
 /*=================LOGIN STUFF============================*/
-.loginBtn {
-	border: thin solid white;
-	color: white;
+
+#accountAccess {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
-.anonBtn {
+.anonBtn, .loginBtn {
 	border: thin solid black;
 	color: black;
 }
+
