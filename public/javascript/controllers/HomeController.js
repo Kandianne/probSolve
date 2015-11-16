@@ -25,7 +25,6 @@
 			$mdDialog
 			.show( alert )
 			.finally(function() {
-				console.log("homectrl 2nd dialog func")
 				alert = undefined;
 			});
 		}

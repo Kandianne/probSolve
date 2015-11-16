@@ -12,6 +12,13 @@ require("./Models/SolutionsModel");
 require("./Models/UserModel"); 
 require("./Models/CategoriesModel"); 
 
+// var db = process.env.MONGOLAB_URI || env.MONGOLAB_URI || "mongodb://localhost/probSolve";
+var db = "mongodb://localhost/probSolve";
+mongoose.connect(db, function(err) {
+	if (err) return console.log("Error connecting to database: %s. Maybe run mongod??", db);
+	var x = new Date();
+	console.log("Connected to %s at %s", db, x.toLocaleString());
+});
 
 app.set('views', path.join(__dirname, 'views'));
 //set the view engine that will render HTML from the server to the client

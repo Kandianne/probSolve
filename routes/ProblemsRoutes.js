@@ -8,9 +8,28 @@ var auth = jwt({
 	userProperty: "payload"
 })
 
-router.post("/newProblem", function(req, res){
+router.post("/", function(req, res){
 	console.log(req.body)
-	console.log("getting to 13proroutes")
+	var newProblem = new Problems(req.body);
+	newProblem.save(function(err, posted){
+		if(err) return res.status(500).send({err: "The server sucks right now"});
+		if(!posted) return res.status(400).send({err: "Couldn't create problem"});
+		res.send();
+	})
+});
+
+router.get("/", function(req, res){
+	Problems.find({})
+	.populate({
+		path: "postedBy",
+		model: "User",
+		select: "username"
+	})
+	.exec(function(err, problems) {
+		if(err) return res.status(500).send({err: "error getting all probs"});
+		if(!problems) return res.status(400).send({err: "probs don't exist"});
+		res.send(problems);
+	});
 });
 
 

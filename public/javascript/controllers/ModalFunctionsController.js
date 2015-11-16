@@ -11,8 +11,7 @@
 
 		vm.createProblem = function() {
 			$mdDialog.hide();
-			ProblemFactory.postProblem(vm.problem).then(function(){
-			})
+			ProblemFactory.postProblem(vm.problem)
 		};
 
 		vm.createSolution = function() {
