@@ -8,6 +8,7 @@
 	function ModalFunctionsController($state, $mdDialog, ProblemFactory, SolutionFactory) {
 		var vm = this;
 		vm.problem = {};
+		
 
 		vm.createProblem = function() {
 			$mdDialog.hide();

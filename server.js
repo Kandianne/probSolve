@@ -47,6 +47,7 @@ app.get('/', function(req, res) {
 });
 
 app.use("/api/problems", problemsRoutes);
+app.use("/api/solutions", problemsRoutes);
 
 var server = app.listen(port, function() {
 	var host = server.address().address;

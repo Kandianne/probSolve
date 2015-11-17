@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Problems = mongoose.model('Solutions');
+var Solutions = mongoose.model('Problems');
 var jwt = require("express-jwt");
 var auth = jwt({
 	secret: "problem_solvers",
@@ -10,25 +10,25 @@ var auth = jwt({
 
 router.post("/", function(req, res){
 	console.log(req.body)
-	var newProblem = new Problems(req.body);
-	newProblem.save(function(err, posted){
+	var newSolution = new Solutions(req.body);
+	newSolution.save(function(err, posted){
 		if(err) return res.status(500).send({err: "The server sucks right now"});
-		if(!posted) return res.status(400).send({err: "Couldn't create problem"});
+		if(!posted) return res.status(400).send({err: "Couldn't create the solution"});
 		res.send();
 	})
 });
 
 router.get("/", function(req, res){
-	Problems.find({})
+	Solutions.find({})
 	.populate({
 		path: "postedBy",
 		model: "User",
 		select: "username"
 	})
-	.exec(function(err, problems) {
-		if(err) return res.status(500).send({err: "error getting all probs"});
-		if(!problems) return res.status(400).send({err: "probs don't exist"});
-		res.send(problems);
+	.exec(function(err, solutions) {
+		if(err) return res.status(500).send({err: "error getting all solutions"});
+		if(!solutions) return res.status(400).send({err: "solutions don't exist"});
+		res.send(solutions);
 	});
 });
 

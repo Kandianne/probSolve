@@ -12,7 +12,7 @@
 		p.postSolution = function(solObj){
 			console.log(solObj);
 			var q = $q.defer();
-			$http.post("api/solution/", solObj).success(function(){
+			$http.post("api/solutions/", solObj).success(function(){
 				q.resolve(res);
 			})
 		}
