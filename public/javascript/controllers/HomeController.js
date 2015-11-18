@@ -3,12 +3,26 @@
 	angular.module('app')
 	.controller('HomeController', HomeController);
 
-	HomeController.$inject = ['$state', '$mdDialog'];
+	HomeController.$inject = ['$state', '$mdDialog', 'HomeFactory'];
 
-	function HomeController($state, $mdDialog) {
+	function HomeController($state, $mdDialog, HomeFactory) {
 		var vm = this;
 		var alert;
 
+
+		// vm.getProblems = function(){
+		// 	HomeFactory.getProblems().then(function(){
+		// 		console.log("got here!")
+		// 	})
+		// };
+		// vm.getProblems();
+
+		// if(useeee) {
+		// 	HomeFactory.getUserLoggedIn($rootScope._user.id).then(function(res) {
+		// 		vm.userLoggedIn = res;
+		// 	})
+		// } 
+		// else {vm.getProblems()};	
 
 		vm.problemModal = function($event){
 			var parentE1 = angular.element(document.querySelector('md-content'));
@@ -22,8 +36,7 @@
 				controllerAs: 'vm',
 				controller: 'ModalFunctionsController'
 			});
-$mdDialog
-.show( alert )
+$mdDialog.show( alert )
 .finally(function() {
 	alert = undefined;
 });
@@ -48,6 +61,7 @@ $mdDialog
 	alert = undefined;
 });
 }
+
 }
 })();
 

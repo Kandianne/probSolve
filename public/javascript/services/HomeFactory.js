@@ -6,8 +6,17 @@
 	HomeFactory.$inject = ['$http', '$q'];
 
 	function HomeFactory($http, $q) {
-		var o = {};
+		var ps = {};
+
+		ps.getProblems = function(){
+			var q = $q.defer();
+			$http.get('api/problems/').success(function(res){
+				console.log(hf);
+				vm.problems = res;
+			})
+		}
+
 		
-		return o;
+		return ps;
 	}
 })();
