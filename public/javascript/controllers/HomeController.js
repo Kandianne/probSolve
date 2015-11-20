@@ -46,7 +46,7 @@ vm.solutionModal = function($event){
 	var parentE1 = angular.element(document.querySelector('md-content'));
 
 	alert = $mdDialog.alert({
-		template: '<md-dialog aria-label="What is a solution you think would solve a problem?" ng-cloak><md-toolbar><div class="md-toolbar-tools"><h1>What is a solution you think would solve a problem?</h1></div></md-toolbar><div><form><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>TITLE OF SOLUTION</label><input type="text" ng-model="vm.solution.title"></md-input-container><md-input-container><label>DESCRIPTION</label><input type="text" ng-model="vm.solution.description"></md-input-container><md-input-container><label>HOW HARD IS THIS SOLUTION TO IMPLEMENT?</label><md-select ng-model="vm.solution.description"><md-option>VERY HARD</md-option><md-option>KINDA HARD</md-option></md-select></md-input-container></md-dialog-content><md-button class="md-raised" ng-click="vm.createSolution()">POST</md-button></form></div></md-dialog>',
+		template: '<md-dialog aria-label="What is a solution you think would solve a problem?" ng-cloak><md-toolbar><div class="md-toolbar-tools"><h1>What is a solution you think would solve a problem?</h1></div></md-toolbar><div><form><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>TITLE OF SOLUTION</label><input type="text" ng-model="vm.solution.title"></md-input-container><md-input-container><label>DESCRIPTION</label><input type="text" ng-model="vm.solution.description"></md-input-container><md-input-container><label>HOW HARD IS THIS SOLUTION TO IMPLEMENT?</label><md-select ng-model="vm.solution.level"><md-option>VERY HARD</md-option><md-option>KINDA HARD</md-option></md-select></md-input-container></md-dialog-content><md-button class="md-raised" ng-click="vm.createSolution()">POST</md-button></form></div></md-dialog>',
 		parent: parentE1,
 		targetEvent: $event,
 		clickOutsideToClose:true,
@@ -61,11 +61,11 @@ $mdDialog
 });
 }
 
-vm.loginModal = function($event){
+vm.registerModal = function($event){
 	var parentE1 = angular.element(document.querySelector('md-content'));
 
 	alert = $mdDialog.alert({
-		template: '<md-dialog aria-label="Create a profile" ng-cloak><md-toolbar><div class="md-toolbar-tools"><h1>Create a profile</h1></div></md-toolbar><div><form><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>USERNAME</label><input type="text" ng-model="vm.user.username"></md-input-container><md-input-container><label>PASSWORD</label><input type="text" ng-model="vm.user.password"></md-input-container><md-input-container><label>CONFIRM PASSWORD</label><input type="text"></md-input-container></md-dialog-content><md-button class="md-raised" ng-click="vm.loginModal">FINISH</md-button></form></div></md-dialog>',
+		template: '<md-dialog aria-label="Create a profile" ng-cloak><md-toolbar><div class="md-toolbar-tools"><h1>Create your account below</h1></div></md-toolbar><div><form><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>FIRST AND LAST NAME</label><input type="text" ng-model="vm.user.name"></md-input-container><md-input-container><label>EMAIL</label><input type="text" ng-model="vm.user.email"></md-input-container><md-input-container><label>PASSWORD</label><input type="password" ng-model="vm.user.password"></md-input-container><md-input-container><label>CONFIRM PASSWORD</label><input type="password"></md-input-container></md-dialog-content><md-button class="md-raised" ng-click="vm.finishRegister()">FINISH</md-button></form></div></md-dialog>',
 		parent: parentE1,
 		targetEvent: $event,
 		clickOutsideToClose:true,
@@ -80,11 +80,11 @@ vm.loginModal = function($event){
 	});
 }
 
-vm.anonymousLoginModal = function($event){
+vm.anonymousRegisterModal = function($event){
 	var parentE1 = angular.element(document.querySelector('md-content'));
 
 	alert = $mdDialog.alert({
-		template: '<md-dialog aria-label="Generate an anonymous profile below" ng-cloak><md-toolbar><div class="md-toolbar-tools"><h1>Generate an anonymous profile below</h1></div></md-toolbar><div><form><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>USERNAME</label><input type="text" ng-model="vm.anonUser.username"></md-input-container><md-input-container><label>PASSWORD</label><input type="text" ng-model="vm.anonUser.password"></md-input-container><md-input-container><label>CONFIRM PASSWORD</label><input type="text"></md-input-container></md-dialog-content><md-button class="md-raised" ng-click="vm.loginModal">FINISH</md-button></form></div></md-dialog>',
+		template: '<md-dialog aria-label="Create anonymous account below" ng-cloak><md-toolbar><div class="md-toolbar-tools"><h1>Create anonymous account below<br> (Your info will not be shown to other users)</h1></div></md-toolbar><div><form><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>EMAIL</label><input type="text" ng-model="vm.anonUser.email"></md-input-container><md-input-container><label>PASSWORD</label><input type="text" ng-model="vm.anonUser.password"></md-input-container><md-input-container><label>CONFIRM PASSWORD</label><input type="text"></md-input-container></md-dialog-content><md-button class="md-raised" ng-click="vm.finishAnonRegister()">FINISH</md-button></form></div></md-dialog>',
 		parent: parentE1,
 		targetEvent: $event,
 		clickOutsideToClose:true,

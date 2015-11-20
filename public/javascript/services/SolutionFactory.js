@@ -6,16 +6,16 @@
 	SolutionFactory.$inject = ['$http', '$q'];
 
 	function SolutionFactory($http, $q) {
-		var p = {};
+		var s = {};
 		var vm = this;
 		
-		p.postSolution = function(solObj){
+		s.postSolution = function(solObj){
 			console.log(solObj);
 			var q = $q.defer();
 			$http.post("api/solutions/", solObj).success(function(){
-				q.resolve(res);
+				q.resolve();
 			})
 		}
-		return p;
+		return s;
 	}
 })();

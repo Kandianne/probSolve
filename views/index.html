@@ -3,12 +3,15 @@
 <head>
 	<title>probSolve</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/angular-material/angular-material.css">
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
 <body>
+
+	<md-button class="md-button md-button-ripple homeButton" ui-sref="Home"><i class="fa fa-home"></i></md-button>
+
 	<ui-view></ui-view>
 	<!-- Ext Libs -->
 	<script src="angular/angular.min.js"></script>
@@ -20,6 +23,7 @@
 	<script src="/javascript/app.js"></script>
 	<!-- Factories -->
 	<script src="/javascript/services/HomeFactory.js"></script>
+	<script src="/javascript/services/UserFactory.js"></script>
 	<script src="/javascript/services/ProblemFactory.js"></script>
 	<script src="/javascript/services/SolutionFactory.js"></script>
 	<!-- Controllers -->

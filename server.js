@@ -38,8 +38,8 @@ app.use(bodyParser.json());
 
 //====================DEFINING ROUTE MODULES=================================
 var problemsRoutes = require("./Routes/ProblemsRoutes");
-// var solutionsRoutes = require("./Routes/SolutionsRoutes");
-// var userRoutes = require("./Routes/UserRoutes");
+var solutionsRoutes = require("./Routes/SolutionsRoutes");
+var userRoutes = require("./Routes/UserRoutes");
 
 //on homepage load, render the index page
 app.get('/', function(req, res) {
@@ -47,7 +47,8 @@ app.get('/', function(req, res) {
 });
 
 app.use("/api/problems", problemsRoutes);
-app.use("/api/solutions", problemsRoutes);
+app.use("/api/solutions", solutionsRoutes);
+app.use("/api/user", userRoutes);
 
 var server = app.listen(port, function() {
 	var host = server.address().address;
