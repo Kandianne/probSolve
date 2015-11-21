@@ -10,7 +10,8 @@ var passport = require('passport');
 require("./Models/ProblemsModel"); 
 require("./Models/SolutionsModel"); 
 require("./Models/UserModel"); 
-require("./Models/CategoriesModel"); 
+// require("./Models/CategoriesModel"); 
+require("./config/passport"); 
 
 // var db = process.env.MONGOLAB_URI || env.MONGOLAB_URI || "mongodb://localhost/probSolve";
 var db = "mongodb://localhost/probSolve";
@@ -37,12 +38,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //====================DEFINING ROUTE MODULES=================================
-var problemsRoutes = require("./Routes/ProblemsRoutes");
-var solutionsRoutes = require("./Routes/SolutionsRoutes");
-var userRoutes = require("./Routes/UserRoutes");
+var problemsRoutes = require("./routes/ProblemsRoutes");
+var solutionsRoutes = require("./routes/SolutionsRoutes");
+var userRoutes = require("./routes/UserRoutes");
 
 //on homepage load, render the index page
 app.get('/', function(req, res) {
+	console.log("we are back in server")
 	res.render('index');
 });
 

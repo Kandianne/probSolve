@@ -64,10 +64,11 @@
       return q.promise;
     };
 
-    o.loginUser = function(user) {
+    o.login = function(userLogginIn) {
+      console.log(userLogginIn);
       var q = $q.defer();
-      user.username = user.username.toLowerCase();
-      $http.post('/api/user/login', user).success(function(res) {
+      // userLogginIn.username = userLogginIn.username.toLowerCase();
+      $http.post('/api/user/login', userLogginIn).success(function(res) {
         setToken(res.token);
         $rootScope._user = isLoggedIn();
         console.log($rootScope._user);

@@ -5,8 +5,8 @@ var jwt = require("jsonwebtoken")
 var UserSchema = new mongoose.Schema({
 	facebookId: String,
 	linkedInId: String,
-	name: {type: String, lowercase: true, unique: true},
-	email: {type: String, lowercase: true, unique: true},
+	name: {type: String, lowercase: true},
+	email: {type: String, lowercase: true},
 	anonymous: {type: Boolean, default: false},
 	// image: { type: String, default: 'http://1.bp.blogspot.com/-fDYO0D23HvM/VcdBvhO0FiI/AAAAAAAAAoU/7vi6V3TYHp4/s1600/Anonymous.png'},
 	passwordHash: String,
@@ -31,7 +31,7 @@ UserSchema.methods.generateJWT = function() {
 
 UserSchema.methods.setPassword = function(password) {
 	this.salt = crypto.randomBytes(64).toString('hex');
-	this.passwordHash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+	this.passwordHash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex'); //this is asking for buffer or string
 }
 
 UserSchema.methods.checkPassword = function(password) {

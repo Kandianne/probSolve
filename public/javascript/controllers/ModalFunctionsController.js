@@ -11,6 +11,7 @@
 		vm.solution = {};
 		vm.user = {};
 		vm.anonUser = {};
+		vm.userLoggedin = {};
 		
 
 		vm.createProblem = function() {
@@ -19,21 +20,24 @@
 		};
 
 		vm.createSolution = function() {
-			console.log(vm.solution);
 			$mdDialog.hide();
 			SolutionFactory.postSolution(vm.solution)
 		};
 
 		vm.finishRegister = function() {
-			console.log(vm.user)
 			$mdDialog.hide();
 			UserFactory.register(vm.user)
 		};
 
 		vm.finishAnonRegister = function() {
-			console.log(vm.anonUser);
 			$mdDialog.hide();
 			UserFactory.registerAnon(vm.anonUser).then(function(){
+			})
+		};
+
+		vm.login = function() {
+			$mdDialog.hide();
+			UserFactory.login(vm.userLoggedin).then(function(){
 			})
 		};
 
