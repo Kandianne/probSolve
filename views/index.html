@@ -9,8 +9,23 @@
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
 <body>
-
-	<md-button class="md-button md-button-ripple homeButton" ui-sref="Home"><i class="fa fa-home"></i></md-button>
+	<div layout layout-sm="column" id="accountAccess">
+		<div flex>
+			<md-button ng-click="vm.loginModal($event)">Login to Account</md-button>
+		</div>
+		<div flex>
+			<md-button class="loginBtn" ng-click="vm.registerModal($event)">REGISTER</md-button>
+		</div>
+		<div flex>
+			<md-button class="md-button md-button-ripple homeButton" ui-sref="Home"><i class="fa fa-home"></i></md-button>
+		</div>
+		<div flex>
+			<md-button class="anonBtn" ng-click="vm.anonymousRegisterModal($event)">REGISTER ANONYMOUSLY</md-button>
+		</div>
+		<div flex>
+			<md-button ui-sref="Problems">view problems and solutions</md-button>
+		</div>
+	</div>
 
 	<ui-view></ui-view>
 	<!-- Ext Libs -->

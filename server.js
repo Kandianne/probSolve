@@ -44,7 +44,6 @@ var userRoutes = require("./routes/UserRoutes");
 
 //on homepage load, render the index page
 app.get('/', function(req, res) {
-	console.log("we are back in server")
 	res.render('index');
 });
 
