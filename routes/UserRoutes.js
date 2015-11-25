@@ -8,6 +8,7 @@ var passport = require('passport'); //Multiple ways of bringing authentication f
 //---------REGISTRATION---------------------------------------------------------------
 
 router.post('/register', function(req, res) {
+	console.log(req.body.name)
 	var user = new User(req.body); //Bringing in the request, and adding a document from our schema.
 	user.setPassword(req.body.password); //We are running a model function, which encrypts our password.
 	user.save(function(err, result) { //We are saving that user to our collection
