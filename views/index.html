@@ -9,18 +9,18 @@
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
 <body>
-	<div layout layout-sm="column" id="accountAccess" ng-controller="HomeController as vm">
+	<div layout layout-sm="column" id="accountAccess" ng-controller="GlobalController as gm">
 		<div flex>
-			<md-button ng-click="vm.loginModal($event)">Login to Account</md-button>
+			<md-button ng-click="gm.loginModal($event)">Login to Account</md-button>
 		</div>
 		<div flex>
-			<md-button class="loginBtn" ng-click="vm.registerModal($event)">REGISTER</md-button>
+			<md-button class="loginBtn" ng-click="gm.registerModal($event)">REGISTER</md-button>
 		</div>
 		<div flex>
 			<md-button class="md-button md-button-ripple homeButton" ui-sref="Home"><i class="fa fa-home"></i></md-button>
 		</div>
 		<div flex>
-			<md-button class="anonBtn" ng-click="vm.anonymousRegisterModal($event)">REGISTER ANONYMOUSLY</md-button>
+			<md-button class="anonBtn" ng-click="gm.anonymousRegisterModal($event)">REGISTER ANONYMOUSLY</md-button>
 		</div>
 		
 	</div>
@@ -42,5 +42,6 @@
 	<!-- Controllers -->
 	<script src="/javascript/controllers/ModalFunctionsController.js"></script>
 	<script src="/javascript/controllers/HomeController.js"></script>
+	<script src="/javascript/controllers/GlobalController.js"></script>
 </body>
 </html>
