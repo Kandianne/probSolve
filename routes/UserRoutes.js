@@ -23,7 +23,6 @@ router.post('/register', function(req, res) {
 router.post('/login', function(req, res, next) { //goes to passport module, in config.
 	console.log(req.body);
 	passport.authenticate('local', function(err, user, info){ //calling from the passport
-		console.log(info, "25userroutes");
 		if(!user) return res.status(400).send(info);
 		res.send({token: user.generateJWT()}); //generating a token when there is a user in the collection.
 	})(req, res, next);

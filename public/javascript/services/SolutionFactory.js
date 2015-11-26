@@ -16,6 +16,16 @@
 				q.resolve();
 			})
 		}
+
+		s.getSolutions = function(){
+			var q = $q.defer();
+			$http.get("api/solutions/").success(function(res){
+				console.log(res);
+
+				q.resolve(res);
+			})
+			return q.promise;
+		}
 		return s;
 	}
 })();

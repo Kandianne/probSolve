@@ -3,19 +3,27 @@
 	angular.module('app')
 	.controller('HomeController', HomeController);
 
-	HomeController.$inject = ['$state', '$mdDialog', 'HomeFactory'];
+	HomeController.$inject = ['$state', '$mdDialog', 'HomeFactory', 'ProblemFactory', 'SolutionFactory'];
 
-	function HomeController($state, $mdDialog, HomeFactory) {
+	function HomeController($state, $mdDialog, HomeFactory, ProblemFactory, SolutionFactory) {
 		var vm = this;
 		var alert;
 
 
-		// vm.getProblems = function(){
-		// 	HomeFactory.getProblems().then(function(){
-		// 		console.log("got here!")
-		// 	})
-		// };
-		// vm.getProblems();
+		//=====================GETTING OBJECTS================================	
+		vm.getSolutions = function(){
+			SolutionFactory.getSolutions().then(function(res){
+				vm.solutions = res;
+			})
+		};
+
+		vm.getProblems = function(){
+			ProblemFactory.getProblems().then(function(res){
+				vm.problems = res;
+			})
+		};
+		vm.getProblems();
+		vm.getSolutions();
 
 		// if(useeee) {
 		// 	HomeFactory.getUserLoggedIn($rootScope._user.id).then(function(res) {

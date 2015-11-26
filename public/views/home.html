@@ -15,13 +15,19 @@
 	<div layout layout-sm="column" id="posts">
 		<div flex>
 			<md-button class="md-raised" ng-click="vm.problemModal($event)">Post problems</md-button>
+			<br>
+			<md-button ui-sref="Problems">view problems</md-button>
 		</div>
 		<div flex>
 			<md-button class="md-raised" ng-click="vm.solutionModal($event)">Post solutions</md-button>
+			<br>
+			<md-button ui-sref="Solutions">view solutions</md-button>
 		</div>
 	</div>
 
 </div>
+
+
 
 <!-- <label>WHAT PROBLEM WOULD THIS SOLUTION HELP?</label><md-select ng-model="vm.solution.problem"><md-option>{{vm.problems.title}}</md-option></md-select></md-input-container></md-dialog-content> -->
 

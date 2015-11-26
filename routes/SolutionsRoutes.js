@@ -20,11 +20,11 @@ router.post("/", function(req, res){
 
 router.get("/", function(req, res){
 	Solutions.find({})
-	.populate({
-		path: "postedBy",
-		model: "User",
-		select: "username"
-	})
+	// .populate({
+	// 	path: "postedBy",
+	// 	model: "User",
+	// 	select: "username"
+	// })
 	.exec(function(err, solutions) {
 		if(err) return res.status(500).send({err: "error getting all solutions"});
 		if(!solutions) return res.status(400).send({err: "solutions don't exist"});

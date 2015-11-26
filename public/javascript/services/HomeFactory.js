@@ -8,13 +8,7 @@
 	function HomeFactory($http, $q) {
 		var ps = {};
 
-		ps.getProblems = function(){
-			var q = $q.defer();
-			$http.get('api/problems/').success(function(res){
-				console.log(hf);
-				vm.problems = res;
-			})
-		}
+		//================PS IS FOR PROBLEMS AND SOLUTIONS=========================
 
 		
 		return ps;
