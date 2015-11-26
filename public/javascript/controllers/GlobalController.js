@@ -3,12 +3,20 @@
 	angular.module('app')
 	.controller('GlobalController', GlobalController);
 
-	GlobalController.$inject = ["$state", "$mdDialog", "UserFactory"];
+	GlobalController.$inject = ["$state", "$mdDialog", "UserFactory", "$rootScope"];
 
-	function GlobalController($state, $mdDialog, UserFactory) {
+	function GlobalController($state, $mdDialog, UserFactory, $rootScope) {
 		var vm = this;
 		var alert;
+		
 
+		//=============================GETTING LOGGEDIN USER=================================
+		if($rootScope._user) {
+			UserFactory.getUserLoggedIn($rootScope._user.id).then(function(res) {
+				console.log(res);
+				vm.userLoggedIn = res;
+			});
+		};	
 		//=============================USER REGISTRATION AND LOGIN=========================
 		
 		vm.registerModal = function($event){

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-var passport = require('passport'); //Multiple ways of bringing authentication from different providers. such as fb, local, google, twitch
+var passport = require('passport'); 
 
 
 //---------REGISTRATION---------------------------------------------------------------
@@ -15,8 +15,7 @@ router.post('/register', function(req, res) {
 		if(err) console.log(err); //If err console.log err, either 400-500
 		if(err) return res.status(500).send({err: "Issues with the server"}); //Server error
 		if(!result) return res.status(400).send({err: "You messed up."}); //error in saving
-		console.log("are we getting here man?");
-		res.send(); //Completing post.
+		res.send(); 
 	})
 });
 

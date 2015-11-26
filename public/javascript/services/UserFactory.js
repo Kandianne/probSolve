@@ -44,6 +44,16 @@
       return decodeURIComponent(escape($window.atob(output)));
     };
 
+    //------------------------GET LOGGEDIN USER--------------------------------------
+
+    o.getUserLoggedIn = function (id) {
+      var q = $q.defer();
+      $http.get('/api/user/'+ id).success(function (res) {
+        q.resolve(res);
+      })
+      return q.promise;
+    };
+
     //---------------------LOGIN, REGISTER, LOGOUT----------------------------------------------------
 
     o.register = function(user) {
