@@ -1,0 +1,23 @@
+<div ng-controller="HomeController as vm">
+	<md-card flex="50" ng-repeat="p in vm.problems">
+	<md-card-content>
+	<h2>{{p.title}}&nbsp;{{p.level}}</h2>
+	<p>{{p.description}}</p>
+</md-card-content>
+<md-card-footer>
+Solutions:{{p.solutions}}
+</md-card-footer>
+
+</md-card>
+<md-card flex="50" ng-repeat="s in vm.solutions">
+<md-card-content>
+<h2>{{s.title}}&nbsp;{{s.level}}</h2>
+<p>{{s.description}}</p>
+</md-card-content>
+<md-card-footer>
+Problems this can solve:{{s.problems}}
+</md-card-footer>
+
+</md-card>
+</div>
+
