@@ -13,6 +13,9 @@
 		}).state('Solutions',{
 			url: '/solutions',
 			templateUrl: 'views/solutions.html'
+		}).state('Profile',{
+			url: '/profile',
+			templateUrl: 'views/profile.html'
 		});
 		$urlRouterProvider.otherwise('/');
 	}
