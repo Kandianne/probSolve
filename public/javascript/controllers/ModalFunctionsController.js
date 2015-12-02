@@ -7,12 +7,19 @@
 
 	function ModalFunctionsController($state, $mdDialog, ProblemFactory, SolutionFactory, UserFactory, $rootScope) {
 		var vm = this;
-		vm.problem = {};
-		vm.solution = {};
-		vm.user = {};
-		vm.anonUser = {};
-		vm.userLoggedin = {};
-		
+		// vm.problem = {};
+		// vm.solution = {};
+		// vm.user = {};
+		// vm.anonUser = {};
+
+		// vm.userLoggedIn = $rootScope._user;
+
+		if($rootScope._user) {
+			UserFactory.getUserLoggedIn($rootScope._user.id).then(function(res) {
+				console.log($rootScope._user)
+				vm.userLoggedIn = res;
+			});
+		};
 
 		vm.createProblem = function() {
 			$mdDialog.hide();
@@ -35,11 +42,11 @@
 			})
 		};
 
+		
 		vm.login = function() {
 			$mdDialog.hide();
 			UserFactory.login(vm.userLoggedin).then(function(){
-
-				console.log(vm.user);
+				vm.userLoggedIn = $rootScope._user;
 			})
 		};
 

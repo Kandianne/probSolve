@@ -28,7 +28,6 @@
           return payload;
         }
       } else {
-        console.log('false??')
         return false;
       }
     };
