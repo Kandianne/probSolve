@@ -12,7 +12,7 @@
 		// vm.user = {};
 		// vm.anonUser = {};
 
-		// vm.userLoggedIn = $rootScope._user;
+
 
 		if($rootScope._user) {
 			UserFactory.getUserLoggedIn($rootScope._user.id).then(function(res) {
@@ -42,11 +42,12 @@
 			})
 		};
 
-		
+		// vm.userLoggedIn = $rootScope._user;
 		vm.login = function() {
 			$mdDialog.hide();
 			UserFactory.login(vm.userLoggedin).then(function(){
 				vm.userLoggedIn = $rootScope._user;
+				$state.go('Profile');
 			})
 		};
 

@@ -47,6 +47,7 @@
     //------------------------GET LOGGEDIN USER--------------------------------------
 
     o.getUserLoggedIn = function (id) {
+      console.log(id);
       var q = $q.defer();
       $http.get('/api/user/'+ id).success(function (res) {
         q.resolve(res);
@@ -81,7 +82,7 @@
         setToken(res.token);
         $rootScope._user = isLoggedIn();
         console.log($rootScope._user);
-        q.resolve(res);
+        q.resolve($rootScope._user);
       });
       return q.promise;
     };

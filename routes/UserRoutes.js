@@ -30,22 +30,24 @@ router.post('/login', function(req, res, next) { //goes to passport module, in c
 
 //REQUIRED FOR GETTING ONE USER-------------------------------------------------------
 
-// router.param('id', function(req, res, next, id) {
-// 	req._id = id;
-// 	User.findOne({_id:id})
-// 	.exec(function (err, user) {
-// 		if(err) return res.status(500).send({err: "Error inside the server."});
-// 		if(!user) return res.status(400).send({err: "That user does not exist"});
-// 		req.user = user;
-// 		next();
-// 	});
-// });
+router.param('id', function(req, res, next, id) {
+	req._id = id;
+	User.findOne({_id:id})
+	.exec(function (err, user) {
+		if(err) return res.status(500).send({err: "Error inside the server."});
+		if(!user) return res.status(400).send({err: "That user does not exist"});
+		req.user = user;
+		next();
+	});
+});
+
+router.get('/:id', function(req, res){
+	res.send(req.user);
+})
 
 //----------GETTING USER AND USERS-----------------------------------------------
 
-// router.get('/:id', function(req, res){
-// 	res.send(req.user);
-// })
+
 
 // router.get('/', function(req, res){
 // 	var users = res;
