@@ -17,6 +17,7 @@
 				vm.userLoggedIn = res;
 			});
 		};	
+		
 		//=============================USER REGISTRATION AND LOGIN=========================
 		
 		vm.registerModal = function($event){

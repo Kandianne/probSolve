@@ -81,13 +81,12 @@
       $http.post('/api/user/login', userLogginIn).success(function(res) {
         setToken(res.token);
         $rootScope._user = isLoggedIn();
-        console.log($rootScope._user);
-        q.resolve($rootScope._user);
+        q.resolve();
       });
       return q.promise;
     };
 
-    o.logoutUser = function() {
+    o.logout = function() {
       var q = $q.defer();
       removeToken();
       $rootScope._user = isLoggedIn();
@@ -95,6 +94,7 @@
       return q.promise;
     };
     
+    $rootScope._user = isLoggedIn();
     return o;
   }
 })();
