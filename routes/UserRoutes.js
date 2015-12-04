@@ -28,6 +28,16 @@ router.post('/login', function(req, res, next) { //goes to passport module, in c
 	})(req, res, next);
 });
 
+
+router.post('/auth/facebook', function(req, res){
+	passport.authenticate('facebookInPassportFile', function(err, user, info){
+		console.log(user);
+		if(!user) return res.status(400).send('Hay un error');
+	})
+});
+
+
+
 //REQUIRED FOR GETTING ONE USER-------------------------------------------------------
 
 router.param('id', function(req, res, next, id) {
