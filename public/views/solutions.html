@@ -1,7 +1,13 @@
+<h1>Solutions</h1>
 <div ng-controller="HomeController as vm">
 	<md-card ng-repeat="s in vm.solutions">
-	<md-card-content>
-	<h2>{{s.title}}&nbsp;{{s.level}}</h2>
+		<md-card-content>
+		<div>
+		<h2>{{s.title}}&nbsp;{{s.level}}</h2>
+		<span flex></span>
+				<md-button ng-click="vm.delete($index)">X</md-button>
+				<md-button>Edit</md-button>
+				</div>
 	<p>{{s.description}}</p>
 </md-card-content>
 <md-card-footer>
