@@ -1,0 +1,39 @@
+<md-dialog aria-label="What is a solution you think would solve a problem?" ng-cloak>
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h1>What is a solution you think would solve a problem?</h1>
+		</div>
+	</md-toolbar>
+	<div>
+		<form>
+			<md-dialog-content style="max-width:70%;max-height:90%;">
+		    <md-input-container>
+				<label>
+					TITLE OF SOLUTION
+				</label>
+				<input type="text" ng-model="vm.solution.title">
+			</md-input-container>
+			<md-input-container>
+			<label>
+				DESCRIPTION
+			</label>
+			<input type="text" ng-model="vm.solution.description">
+			</md-input-container>
+			<md-input-container>
+			<label>
+				HOW HARD IS THIS SOLUTION TO IMPLEMENT?
+			</label>
+			<md-select ng-model="vm.solution.level">
+				<md-option>
+					VERY HARD
+				</md-option>
+				<md-option>
+					KINDA HARD
+				</md-option>
+			</md-select>
+			</md-input-container>
+			</md-dialog-content>
+				<md-button class="md-raised md-primary" ng-click="vm.createSolution()">POST</md-button>
+		</form>
+	</div>
+</md-dialog>

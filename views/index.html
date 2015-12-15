@@ -16,9 +16,9 @@
 		<div flex>
 			<md-button href="api/user/auth/facebook" ng-hide="$rootScope._user">Facebook Login</md-button>
 		</div>
-		<div flex>
+		<!-- <div flex>
 			<md-button ng-hide="$rootScope._user">LinkedIn Login</md-button>
-		</div>
+		</div> -->
 		<div flex>
 			<md-button class="loginBtn" ng-click="gm.registerModal($event)">REGISTER</md-button>
 		</div>
@@ -51,6 +51,7 @@
 	<script src="/javascript/services/ProblemFactory.js"></script>
 	<script src="/javascript/services/SolutionFactory.js"></script>
 	<!-- Controllers -->
+	<script src="/javascript/controllers/ProfileController.js"></script>
 	<script src="/javascript/controllers/ModalFunctionsController.js"></script>
 	<script src="/javascript/controllers/HomeController.js"></script>
 	<script src="/javascript/controllers/GlobalController.js"></script>

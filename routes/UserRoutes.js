@@ -4,6 +4,20 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var passport = require('passport'); 
 
+//==========================FUNCTIONALITY CHECKING for EXTERNAL ENVIRONMENT VARIABLES=========================================
+function moduleAvailable(name) {
+  try {
+    require.resolve(name);
+    return true;
+  } catch(e){}
+  return false;
+}
+
+if (moduleAvailable('../env.js')) {
+  var env = require('../env.js');
+} else {
+  var env = {};
+}
 
 //---------REGISTRATION---------------------------------------------------------------
 
@@ -28,13 +42,26 @@ router.post('/login', function(req, res, next) { //goes to passport module, in c
 	})(req, res, next);
 });
 
+//==================FACEBOOK O AUTH========================================
+router.get('/auth/facebook', passport.authenticate('facebook', {
+  scope: ['email']
+}));
 
-router.post('/auth/facebook', function(req, res){
-	passport.authenticate('facebookInPassportFile', function(err, user, info){
-		console.log(user);
-		if(!user) return res.status(400).send('Hay un error');
-	})
-});
+router.get('/auth/facebook/callback',
+  passport.authenticate('facebook', {
+    failureRedirect: '/'
+  }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    if (req.user) {
+      var token = {
+        token: req.user.generateJWT()
+      }
+      res.redirect("/#/auth/token/" + token.token);
+    } else {
+      res.send("You are not authenticated");
+    }
+  });
 
 
 

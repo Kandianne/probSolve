@@ -59,13 +59,7 @@
 			})
 		};
 
-		vm.logout = function() {
-			UserFactory.logout().then(function(){
-				vm.userLoggedIn = $rootScope._user;
-				vm.user = "";
-				$state.go("Home");
-			})
-		};
+		
 
 	}
 })();

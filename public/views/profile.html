@@ -1,4 +1,4 @@
-<div ng-controller='ModalFunctionsController as vm'>
+<div  ng-controller='ProfileController as vm'>
 	<div flex>
 		Welcome {{vm.userLoggedIn.name}}
 	</div>
@@ -10,6 +10,6 @@
 	</div>
 
 	<div flex>
-		<md-button class="md-raised" ng-click="vm.logout()" ng-hide="!vm.userLoggedIn.name">Logout</md-button>
+		<md-button class="md-raised" ng-click="vm.logout()" ng-show="vm.userLoggedIn.name">Logout</md-button>
 	</div>
 </div>
