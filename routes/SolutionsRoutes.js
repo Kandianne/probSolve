@@ -32,5 +32,18 @@ router.get("/", function(req, res){
 	});
 });
 
+router.param("solId", function(req, res, next){
+	console.log(req.params)
+	next();
+});
+
+router.get("/solutionDetails/:solId", function(req, res){
+	console.log(req.params.solId, "41solroutes");
+	Solutions.findOne({_id:req.params.solId}, function(err, theSolution){
+		if(err) return ("there was an urr");
+		if(!theSolution) return ("couldn't find it in db");
+		res.send(theSolution);
+	});
+});
 
 module.exports = router;

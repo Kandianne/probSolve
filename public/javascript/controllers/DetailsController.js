@@ -18,6 +18,15 @@
 				$state.go('ProblemDetail');
 			})
 		};
+
+		vm.getThisSolution = function(probId){
+			SolutionFactory.getThisSolution(probId).then(function(res){
+				vm.solutionDetail = res;
+				console.log(res);
+				console.log(vm.solutionDetail);
+				$state.go('SolutionDetail');
+			})
+		};
 		
 	}
 })();

@@ -9,10 +9,16 @@
 				<md-button>Edit</md-button>
 				</div>
 	<p>{{s.description}}</p>
-</md-card-content>
-<md-card-footer>
-Problems this can solve:{{s.problems}}
-</md-card-footer>
-
-</md-card>
+	</md-card-content>
+	<md-card-footer>
+		Problems this can solve:{{s.problems}}
+	</md-card-footer>
+	<div>
+		<md-button ng-click="vm.deleteSolution($index)">Delete</md-button>
+			<span ng-controller="DetailsController as vm">
+			<md-button ng-click="vm.getThisSolution(s._id)">See More</md-button>
+			</span>
+			<md-button>Edit</md-button>
+	</div>
+	</md-card>
 </div>
