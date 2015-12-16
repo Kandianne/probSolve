@@ -17,18 +17,19 @@
 		DESCRIPTION
 	</label>
 	<input type="text" ng-model="vm.problem.description">
-</md-input-container>
-<md-input-container>
-<label>
+	</md-input-container>
+	<label>
 	FROM 1 to 10 HOW SERIOUS IS THIS PROBLEM?
-</label>
-<input type="number" ng-model="vm.problem.level">
-</md-input-container>
-</div>
-<md-input-container>
-<label>
-	WHAT CATEGORY DOES YOUR PROBLEM FIT INTO?
-</label>
+	</label>
+	<div>
+	<md-slider id="numberSlider" flex min="0" max="10" type="number" ng-model="vm.problem.level" aria-label="red" aria-controls="red-slider"></md-slider>
+	 <input flex="10" type="number" ng-model="vm.problem.level" aria-label="red" aria-controls="red-slider">
+	 </div>
+	</div>
+	<md-input-container>
+		<label>
+			WHAT CATEGORY DOES YOUR PROBLEM FIT INTO?
+		</label>
 <md-select ng-model="vm.problem.category">
 <md-option>BUSINESS</md-option>
 <md-option>EDUCATIONAL</md-option>
