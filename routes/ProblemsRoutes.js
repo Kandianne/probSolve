@@ -13,7 +13,6 @@ router.post("/", function(req, res){
 
 	var newProblem = new Problems(req.body);
 	newProblem.save(function(err, posted){
-		console.log(err)
 		if(err) return res.status(500).send({err: "The server sucks right now"});
 		if(!posted) return res.status(400).send({err: "Couldn't create problem"});
 		res.send();
@@ -27,11 +26,25 @@ router.get("/", function(req, res){
 	// 	model: "User",
 	// 	select: "name"
 	// })
-.exec(function(err, problems) {
+	.exec(function(err, problems) {
 	if(err) return res.status(500).send({err: "error getting all probs"});
 	if(!problems) return res.status(400).send({err: "probs don't exist"});
 	res.send(problems);
 });
+});
+
+router.param('probId', function(req, res, next){
+	console.log(req.params)
+	next()
+});
+
+router.get('/probDetails/:probId', function(req, res){
+	console.log(req.params.probId, "38 in prob routes");
+	Problems.findOne({_id: req.params.probId}, function(err, theProb){
+		if(err) return res.status(500).send('serve probs with probs');
+		if(!theProb) return res.status(400).send('could not find that prob yo');
+		res.send(theProb);
+	});
 });
 
 

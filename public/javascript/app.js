@@ -16,6 +16,9 @@
 		}).state('Profile',{
 			url: '/profile',
 			templateUrl: 'views/profile.html'
+		}).state('ProblemDetail',{
+			url: '/ProblemDetail/:probId',
+			templateUrl: 'views/problemDetail.html'
 		});
 		$urlRouterProvider.otherwise('/');
 	}

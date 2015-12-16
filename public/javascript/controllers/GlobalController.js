@@ -13,7 +13,6 @@
 		//=============================GETTING LOGGEDIN USER=================================
 		if($rootScope._user) {
 			UserFactory.getUserLoggedIn($rootScope._user.id).then(function(res) {
-				console.log(res);
 				vm.userLoggedIn = res;
 			});
 		};	

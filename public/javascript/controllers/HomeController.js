@@ -23,6 +23,7 @@
 			})
 		})();
 
+		
 		vm.problemModal = function($event){
 			var parentE1 = angular.element(document.querySelector('md-content'));
 
