@@ -12,7 +12,7 @@
 		<div>
 			<md-button ng-click="vm.delete($index)">Delete</md-button>
 			<span ng-controller="DetailsController as vm">
-			<md-button ng-click="vm.getThisProb(p._id)">See More</md-button>
+			<md-button ui-sref="ProblemDetail({probId: p._id})">See More</md-button>
 			</span>
 			<md-button>Edit</md-button>
 		</div>

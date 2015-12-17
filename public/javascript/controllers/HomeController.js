@@ -3,9 +3,9 @@
 	angular.module('app')
 	.controller('HomeController', HomeController);
 
-	HomeController.$inject = ['$state', '$mdDialog', 'HomeFactory', 'ProblemFactory', 'SolutionFactory'];
+	HomeController.$inject = ['$state', '$stateParams', '$mdDialog', 'HomeFactory', 'ProblemFactory', 'SolutionFactory'];
 
-	function HomeController($state, $mdDialog, HomeFactory, ProblemFactory, SolutionFactory) {
+	function HomeController($state, $stateParams, $mdDialog, HomeFactory, ProblemFactory, SolutionFactory) {
 		var vm = this;
 		var alert;
 
@@ -14,10 +14,11 @@
 		(vm.getSolutions = function(){
 			SolutionFactory.getSolutions().then(function(res){
 				vm.solutions = res;
+				console.log(vm.solutions);
 			})
 		})();
 
-		(vm.getProblems = function(){
+		(vm.getProblems = function(probId){
 			ProblemFactory.getProblems().then(function(res){
 				vm.problems = res;
 			})

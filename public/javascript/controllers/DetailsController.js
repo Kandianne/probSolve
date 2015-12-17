@@ -3,21 +3,24 @@
 	angular.module('app')
 	.controller('DetailsController', DetailsController);
 
-	DetailsController.$inject = ['$state','ProblemFactory', 'SolutionFactory'];
+	DetailsController.$inject = ['$state', '$stateParams','ProblemFactory', 'SolutionFactory'];
 
-	function DetailsController($state, ProblemFactory, SolutionFactory) {
+	function DetailsController($state, $stateParams, ProblemFactory, SolutionFactory) {
 		var vm = this;
 
 
 		//=====================GETTING specific OBJECTS================================	
-
-		vm.getThisProb = function(probId){
-			ProblemFactory.getThisProblem(probId).then(function(res){
+		if($stateParams.probId){
+		console.log($stateParams.probId);
+			ProblemFactory.getThisProblem($stateParams.probId).then(function(res){
 				vm.problemDetail = res;
 				console.log(vm.problemDetail);
 				$state.go('ProblemDetail');
-			})
-		};
+			});
+		} else {
+			console.log('no stateparams!')
+		}	
+			
 
 		vm.getThisSolution = function(probId){
 			SolutionFactory.getThisSolution(probId).then(function(res){
