@@ -8,24 +8,24 @@
 	<link rel="stylesheet" type="text/css" href="/angular-material/angular-material.css">
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
-<body>
+<body  ng-controller="GlobalController as gm">
 
 
-	<div layout layout-sm="column" id="accountAccess" ng-controller="GlobalController as gm">
-		
+	<div layout layout-sm="column" id="accountAccess">
 		
 	</div>
-	<md-toolbar md-scroll-shrink ng-if="true"  ng-controller="GlobalController as gm">
+	<md-toolbar md-scroll-shrink ng-if="true">
     <div class="md-toolbar-tools">
       <h3>
-      <md-button class="md-button md-button-ripple homeButton" ui-sref="Home">PS {{vm.userLoggedIn.name}}</md-button>
+      <md-button class="md-button md-button-ripple homeButton" ui-sref="Home">PS {{gm.userLoggedIn.name}}</md-button>
       </h3>
       <span flex></span>
       <div layout layout-sm="column">
-			<md-button ng-click="gm.loginModal($event)" ng-hide="$rootScope._user">Login</md-button>
-			<md-button href="api/user/auth/facebook" ng-hide="$rootScope._user">Facebook Login</md-button>
-			<md-button class="loginBtn" ng-show="!vm.userLoggedIn.name" ng-click="gm.registerModal($event)">REGISTER</md-button>
-			<md-button class="md-button md-button-ripple homeButton" ui-sref="Profile">YOUR PROFILE</md-button>
+			<md-button ng-click="gm.loginModal($event)" ng-hide="_user.id">Login</md-button>
+			<md-button ng-click="gm.logout()" ng-show="_user.id">Logout</md-button>
+			<md-button href="api/user/auth/facebook" ng-hide="_user.id">Facebook Login</md-button>
+			<md-button class="loginBtn" ng-show="!_user.id" ng-click="gm.registerModal($event)">REGISTER</md-button>
+			<md-button class="md-button md-button-ripple homeButton" ng-show="_user.id" ui-sref="Profile">YOUR PROFILE</md-button>
 		</div>
 		
 		<!-- <div flex>

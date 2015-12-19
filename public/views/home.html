@@ -1,7 +1,9 @@
 <div ng-controller="HomeController as vm">
 	<div layout layout-md="column" layout-sm="column" class="mainHome">
 		<div flex>
+			<md-button ui-sref="Problems">
 			<h1>PROBLEMS</h1>
+			</md-button>
 		</div>
 		<div flex>
 			<h3>
@@ -9,19 +11,17 @@
 			</h3>
 		</div>
 		<div flex>
+			<md-button ui-sref="Solutions">
 			<h1>SOLUTIONS</h1>
+			</md-button>
 		</div>
 	</div>
 	<div layout layout-sm="column" id="posts">
 		<div flex>
 			<md-button class="md-raised" ng-click="vm.problemModal($event)">Post problems</md-button>
-			<br>
-			<md-button ui-sref="Problems">view problems</md-button>
-		</div>
+			</div>
 		<div flex>
 			<md-button class="md-raised" ng-click="vm.solutionModal($event)">Post solutions</md-button>
-			<br>
-			<md-button ui-sref="Solutions">view solutions</md-button>
 		</div>
 	</div>
 </div>

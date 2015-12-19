@@ -1,6 +1,6 @@
-<div  ng-controller='ProfileController as vm'>
-	<div flex>
-		Welcome {{vm.userLoggedIn.name}}
+
+	<div flex ng-controller="ProfileController as p">
+		Welcome {{p.userLoggedIn.name}}
 	</div>
 	<div flex>
 		Problems you've posted
@@ -8,8 +8,8 @@
 	<div flex>
 		Solutions you've posted
 	</div>
-
 	<div flex>
-		<md-button class="md-raised" ng-click="vm.logout()" ng-show="vm.userLoggedIn.name">Logout</md-button>
+		<md-button class="md-raised" ng-click="gm.logout()" ng-show="_user.id">Logout</md-button>
 	</div>
-</div>
+
+	

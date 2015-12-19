@@ -1,12 +1,20 @@
-<h1>Solutions</h1>
+<h1>SOLUTIONS</h1>
 <div ng-controller="HomeController as vm">
+	<div flex layout>
+	<md-input-container  flex="70">
+		<input placeholder="Search Solutions">
+	</md-input-container>
+	<md-button flex>
+		search
+	</md-button>
+	</div>
+
 	<md-card ng-repeat="s in vm.solutions">
 		<md-card-content>
 		<div>
-		<h2>{{s.title}}&nbsp;{{s.level}}</h2>
+		<h2>{{s.title}}</h2>
+		<i>{{s.level}}</i>
 		<span flex></span>
-				<md-button ng-click="vm.delete($index)">X</md-button>
-				<md-button>Edit</md-button>
 				</div>
 	<p>{{s.description}}</p>
 	</md-card-content>
@@ -16,7 +24,7 @@
 	<div>
 		<md-button ng-click="vm.deleteSolution($index)">Delete</md-button>
 			<span ng-controller="DetailsController as vm">
-			<md-button ng-click="vm.getThisSolution(s._id)">See More</md-button>
+			<md-button ui-sref="SolutionDetail({solId:s._id})">See More</md-button>
 			</span>
 			<md-button>Edit</md-button>
 	</div>

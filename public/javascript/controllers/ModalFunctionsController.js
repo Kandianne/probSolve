@@ -54,7 +54,7 @@
 		vm.login = function() {
 			$mdDialog.hide();
 			UserFactory.login(vm.userLoggedin).then(function(){
-				vm.userLoggedIn = $rootScope._user;
+				// vm.userLoggedIn = $rootScope._user;
 				$state.go('Profile');
 			})
 		};

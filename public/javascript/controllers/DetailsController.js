@@ -22,14 +22,18 @@
 		}	
 			
 
-		vm.getThisSolution = function(probId){
-			SolutionFactory.getThisSolution(probId).then(function(res){
+		if($stateParams.solId){
+			console.log($stateParams.solId)
+			SolutionFactory.getThisSolution($stateParams.solId).then(function(res){
 				vm.solutionDetail = res;
 				console.log(res);
 				console.log(vm.solutionDetail);
 				$state.go('SolutionDetail');
-			})
-		};
+			});
+		} else {
+			console.log('theres no stateparams yo!')
+		}
+		
 		
 	}
 })();

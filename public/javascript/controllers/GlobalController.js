@@ -11,11 +11,13 @@
 		
 
 		//=============================GETTING LOGGEDIN USER=================================
-		if($rootScope._user) {
+		if($rootScope._user.id) {
 			UserFactory.getUserLoggedIn($rootScope._user.id).then(function(res) {
 				vm.userLoggedIn = res;
 			});
-		};	
+		} else {
+			console.log("there is no _user");
+		}	
 		
 		//=============================USER REGISTRATION AND LOGIN=========================
 		
@@ -76,6 +78,14 @@
 			});
 			
 		}
+
+		vm.logout = function() {
+			UserFactory.logout().then(function(){
+				vm.userLoggedIn = $rootScope._user;
+				vm.user = "";
+				$state.go("Home");
+			})
+		};
 
 	}
 })();
