@@ -13,7 +13,7 @@ body, html {
 }
 
 /*=================MAIN BUTTONS============================*/
-#posts .md-raised {
+#posts .md-raised, #posts md-card {
 	padding: 1em;
 	background-color: rgba(0,0,0, .6);
 	color: white;
@@ -39,4 +39,13 @@ md-dialog md-input-container, #numberSlider{
 	margin: 19px;
 }
 
+/*==================SLIDE TOGGLE===================*/
+.slide-toggle {
+  overflow: hidden;
+  transition: all 1.5s; 
+}
+
+.searchButt {
+	color: white;
+}
 

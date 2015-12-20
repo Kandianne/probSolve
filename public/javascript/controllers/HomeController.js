@@ -1,11 +1,11 @@
 (function() {
 	'use strict';
 	angular.module('app')
-	.controller('HomeController', HomeController);
+	.controller('HomeController', HomeController)
 
-	HomeController.$inject = ['$state', '$stateParams', '$mdDialog', 'HomeFactory', 'ProblemFactory', 'SolutionFactory'];
+	HomeController.$inject = ['$state', '$stateParams', '$mdDialog', '$scope', 'HomeFactory', 'ProblemFactory', 'SolutionFactory'];
 
-	function HomeController($state, $stateParams, $mdDialog, HomeFactory, ProblemFactory, SolutionFactory) {
+	function HomeController($state, $stateParams, $mdDialog, $scope, HomeFactory, ProblemFactory, SolutionFactory) {
 		var vm = this;
 		var alert;
 
@@ -61,5 +61,11 @@
 				alert = undefined;
 			});
 		}
+
+		
+		//==================TOGGLE SEARCH BOX======================
+		
 	}
 })();
+	
+	

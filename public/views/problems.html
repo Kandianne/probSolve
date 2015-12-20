@@ -1,9 +1,9 @@
 <h1>Problems</h1>
-<div ng-controller="HomeController as vm">
-	<md-card ng-repeat="p in vm.problems">
+<div flex ng-controller="HomeController as vm">
+	<div  flex layout layout-align="center" ng-repeat="p in vm.problems" id="posts">
+	<md-card  flex="50">
 		<md-card-content>
 		<h2>{{p.title}}&nbsp;{{p.level}}</h2>
-		<span flex></span>
 				<p>{{p.description}}</p>
 		</md-card-content>
 		<md-card-footer>
@@ -17,4 +17,12 @@
 			<md-button>Edit</md-button>
 		</div>
 	</md-card>
+	<md-card  flex="20">
+		
+		<md-card-content>
+			<h3>RATINGS...</h3>
+		</md-card-content>
+		
+	</md-card>
+	</div>
 </div>

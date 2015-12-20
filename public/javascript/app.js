@@ -1,7 +1,8 @@
 (function() {
 	'use strict';
-	angular.module('app', ['ui.router', 'ngMaterial'])
-	.config(Config);
+	var app = angular.module('app', ['ui.router', 'ngMaterial', 'ngAnimate']);
+	app.config(Config);
+
 	Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 	function Config($stateProvider, $urlRouterProvider) {
 		$stateProvider.state('Home',{
@@ -25,4 +26,36 @@
 		});
 		$urlRouterProvider.otherwise('/');
 	}
+
+	app.animation('.slide-toggle', ['$animateCss', function($animateCss) {
+        return {
+            addClass: function(element, className, doneFn) {
+                if (className == 'ng-hide') {
+                    var animator = $animateCss(element, {                    
+                        to: {height: '0px', opacity: 0}
+                    });
+                    if (animator) {
+                        return animator.start().finally(function() {
+                            element[0].style.height = '';
+                            doneFn();
+                        });
+                    }
+                }
+                doneFn();
+            },
+            removeClass: function(element, className, doneFn) {
+                if (className == 'ng-hide') {
+                    var height = element[0].offsetHeight;
+                    var animator = $animateCss(element, {
+                        from: {height: '0px', opacity: 0},
+                        to: {height: height + 'px', opacity: 1}
+                    });
+                    if (animator) {
+                     return animator.start().finally(doneFn);
+                    }
+                }
+                doneFn();
+            }
+        };
+    }]);
 })();
