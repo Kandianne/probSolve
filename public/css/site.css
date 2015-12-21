@@ -7,6 +7,14 @@ body, html {
 	height: 100%;
 }
 
+input {
+	border-radius: 9px;
+	padding: 9px;
+	border: thin solid black;
+	color: black;
+	background-color: transparent;
+}
+
 .mainHome {
 	padding-top: 17%;
 	padding-bottom: 17%;
@@ -19,7 +27,9 @@ body, html {
 	color: white;
 }
 
-
+.md-button.md-primary.md-raised {
+	background-color: black;
+}
 /*=================LOGIN STUFF============================*/
 /*
 
