@@ -54,7 +54,8 @@
 		vm.login = function() {
 			$mdDialog.hide();
 			UserFactory.login(vm.userLoggedin).then(function(){
-				// vm.userLoggedIn = $rootScope._user;
+				vm.userLoggedIn = $rootScope._user;
+				console.log(vm.userLoggedIn, "58 of modal controller")
 				$state.go('Profile');
 			})
 		};

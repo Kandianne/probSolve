@@ -32,6 +32,16 @@
 				</md-option>
 			</md-select>
 			</md-input-container>
+			<md-input-container ng-controller="HomeController as vm">
+			<label>
+				IS THIS RELATED TO A PROBLEM BELOW
+			</label>
+			<md-select ng-model="vm.solution.problem">
+				<md-option ng-repeat="p in vm.problems">
+				{{p}}
+				</md-option>
+				</md-select>
+			</md-input-container>
 			</md-dialog-content>
 				<md-button class="md-raised md-primary" ng-click="vm.createSolution()">POST</md-button>
 		</form>

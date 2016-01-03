@@ -61,7 +61,6 @@
 
 		vm.loginModal = function($event){
 			var parentE1 = angular.element(document.querySelector('md-content'));
-
 			alert = $mdDialog.alert({
 				template: '<md-dialog aria-label="Please login" ng-cloak><md-toolbar><div class="md-toolbar-tools"><h1>Please login</h1></div></md-toolbar><div><form><md-dialog-content style="max-width:70%;max-height:90%;"><md-input-container><label>EMAIL</label><input type="text" ng-model="vm.userLoggedin.email"></md-input-container><md-input-container><label>PASSWORD</label><input type="password" ng-model="vm.userLoggedin.password"></md-input-container></md-dialog-content><md-button class="md-raised" ng-click="vm.login()">FINISH</md-button></form></div></md-dialog>',
 				parent: parentE1,
