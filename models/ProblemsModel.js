@@ -6,7 +6,8 @@ var ProblemsSchema = new mongoose.Schema({
 	severity: Number,
 	image: String, 
 	solutions: [{type: mongoose.Schema.Types.ObjectId, ref: "Solutions"}],
-	category: [{type: mongoose.Schema.Types.ObjectId, ref: "Category"}],
+	category: String,
+	// category: [{type: mongoose.Schema.Types.ObjectId, ref: "Category"}],
 	postedBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
 });
 
