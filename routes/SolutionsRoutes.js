@@ -11,6 +11,7 @@ var auth = jwt({
 router.post("/", function(req, res){
 	console.log(req.body)
 	var newSolution = new Solutions(req.body);
+	console.log(newSolution);
 	newSolution.save(function(err, posted){
 		if(err) return res.status(500).send({err: "The server sucks right now"});
 		if(!posted) return res.status(400).send({err: "Couldn't create the solution"});

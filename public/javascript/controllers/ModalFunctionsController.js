@@ -31,6 +31,8 @@
 
 		vm.createProblem = function() {
 			$mdDialog.hide();
+			console.log($rootScope._user.id)
+			vm.problem.postedBy = $rootScope._user.id;
 			ProblemFactory.postProblem(vm.problem)
 		};
 
