@@ -34,11 +34,11 @@
 			</md-input-container>
 			<md-input-container ng-controller="HomeController as vm">
 			<label>
-				IS THIS RELATED TO A PROBLEM BELOW
+				IS THIS RELATED TO A PROBLEM BELOW?
 			</label>
 			<md-select ng-model="vm.solution.problem">
 				<md-option ng-repeat="p in vm.problems">
-				{{p}}
+				{{p.title}}
 				</md-option>
 				</md-select>
 			</md-input-container>

@@ -75,7 +75,6 @@
 			.finally(function() {
 				alert = undefined;
 			});
-			
 		}
 
 		vm.logout = function() {

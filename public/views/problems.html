@@ -11,25 +11,47 @@
 
 	<div  flex layout layout-align="center" ng-repeat="p in vm.problems" id="posts">
 	<md-card  flex="50">
+		<md-button class="md-raised">{{p.postedBy.name}}</md-button>
 		<md-card-content>
 		<h2>{{p.title}}&nbsp;{{p.level}}</h2>
 				<p>{{p.description}}</p>
 		</md-card-content>
 		<md-card-footer>
-			Solutions:{{p.solutions}}
+			Solutions:{{p.solutions.title}}
 		</md-card-footer>
-		<div>
-			<md-button ng-click="vm.delete($index)">Delete</md-button>
+		<div layout>
 			<span ng-controller="DetailsController as vm">
 			<md-button ui-sref="ProblemDetail({probId: p._id})">See More</md-button>
 			</span>
-			<md-button>Edit</md-button>
+			<span flex></span>
+			<md-button style="font-size:1.9em;" ng-click="vm.openMenu($mdOpenMenu, $event)">
+			<i class="fa fa-caret-down"></i>
+			</md-button>
+			
 		</div>
+		<!-- <div layout='right-end' class="slide-toggle" ng-show="slideToggle">
+			<md-button>Edit</md-button>
+			<md-button ng-click="vm.delete($index)">Delete</md-button>
+			</div> -->
+
+		<!-- <md-menu md-offset=x"0 0">
+		 <md-menu-content>
+		   <md-menu-item>
+		   <md-button ng-click="vm.delete($index)">Delete</md-button>
+		   </md-menu-item>
+		   <md-menu-item>
+		   <md-button>Edit</md-button>
+		   </md-menu-item>
+		 </md-menu-content>
+		</md-menu> -->
+
+
 	</md-card>
 	<md-card  flex="20">
 		
 		<md-card-content>
 			<h3>RATINGS...</h3>
+			<h4>{{p.severity}}</h4>
 		</md-card-content>
 		
 	</md-card>

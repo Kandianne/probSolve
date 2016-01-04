@@ -20,6 +20,7 @@
 
 		(vm.getProblems = function(probId){
 			ProblemFactory.getProblems().then(function(res){
+				console.log(res);
 				vm.problems = res;
 			})
 		})();
@@ -63,8 +64,14 @@
 		}
 
 		
-		//==================TOGGLE SEARCH BOX======================
-		
+		//==================EDIT AND DELETE TOGGLE======================
+		// var originatorEv;
+  //   	vm.openMenu = function($mdOpenMenu, ev) {
+  //   		console.log($mdOpenMenu);
+  //     		originatorEv = ev;
+  //     		$mdOpenMenu(ev);
+  //   		};
+
 	}
 })();
 	

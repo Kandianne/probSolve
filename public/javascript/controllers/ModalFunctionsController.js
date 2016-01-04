@@ -38,6 +38,8 @@
 
 		vm.createSolution = function() {
 			$mdDialog.hide();
+			console.log($rootScope._user.id)
+			vm.solution.postedBy = $rootScope._user.id;
 			SolutionFactory.postSolution(vm.solution)
 		};
 
