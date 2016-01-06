@@ -14,26 +14,33 @@
 
 		<md-card-content>
 		<h2>{{s.title}}</h2>
-		<i>{{s.level}}</i>
 		<p>{{s.description}}</p>
 		</md-card-content>
 		<md-card-footer>
-		Problems this can solve:{{s.problems}}
+		Rating:{{s.level}}
 		</md-card-footer>
+		
 		<div>
-		<md-button ng-click="vm.deleteSolution($index)">Delete</md-button>
 			<span ng-controller="DetailsController as vm">
 			<md-button ui-sref="SolutionDetail({solId:s._id})">See More</md-button>
 			</span>
+			<span flex></span>
+			<md-button style="font-size:1.9em;" ng-click="vm.openMenu($mdOpenMenu, $event)">
+			<i class="fa fa-caret-down"></i>
+			</md-button>
+
 			<md-button>Edit</md-button>
+			<md-button ng-click="vm.deleteSolution($index)">Delete</md-button>
 		</div>
 
 	</md-card>
 	<md-card flex="20">
 		
 		<md-card-content>
-			<h3>RATINGS...</h3>
-			<h4>{{p.postedBy.name}}</h4>
+			<h1>Problems this solution can solve</h1>
+			<div ng-controller="HomeController as vm">
+				<i id="tags" ng-repeat="p in vm.problems">{{p.title}}</i>
+			</div>
 		</md-card-content>
 		
 	</md-card>

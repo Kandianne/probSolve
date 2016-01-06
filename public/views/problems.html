@@ -17,7 +17,7 @@
 				<p>{{p.description}}</p>
 		</md-card-content>
 		<md-card-footer>
-			Solutions:{{p.solutions.title}}
+			Rating: {{p.severity}}
 		</md-card-footer>
 		<div layout>
 			<span ng-controller="DetailsController as vm">
@@ -29,29 +29,15 @@
 			</md-button>
 			
 		</div>
-		<!-- <div layout='right-end' class="slide-toggle" ng-show="slideToggle">
-			<md-button>Edit</md-button>
-			<md-button ng-click="vm.delete($index)">Delete</md-button>
-			</div> -->
-
-		<!-- <md-menu md-offset=x"0 0">
-		 <md-menu-content>
-		   <md-menu-item>
-		   <md-button ng-click="vm.delete($index)">Delete</md-button>
-		   </md-menu-item>
-		   <md-menu-item>
-		   <md-button>Edit</md-button>
-		   </md-menu-item>
-		 </md-menu-content>
-		</md-menu> -->
-
 
 	</md-card>
 	<md-card  flex="20">
 		
 		<md-card-content>
-			<h3>RATINGS...</h3>
-			<h4>{{p.severity}}</h4>
+			<h1>Possible Solutions</h1>
+			<div ng-controller="HomeController as vm">
+				<i id="tags" ng-repeat="s in vm.solutions">{{s.title}}</i>
+			</div>
 		</md-card-content>
 		
 	</md-card>

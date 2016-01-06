@@ -1,15 +1,30 @@
+<div flex ng-controller="ProfileController as p">
+	<h1>
+	Welcome {{p.userLoggedIn.name}}
+	</h1>
+</div>
 
-	<div flex ng-controller="ProfileController as p">
-		Welcome {{p.userLoggedIn.name}}
-	</div>
+<div layout layout-sm="column">
 	<div flex>
 		Problems you've posted
 	</div>
 	<div flex>
 		Solutions you've posted
 	</div>
-	<div flex>
-		<md-button class="md-raised" ng-click="gm.logout()" ng-show="_user.id">Logout</md-button>
+</div>
+
+<div ng-controller="HomeController as vm">
+		<div layout layout-sm="column" id="posts">
+		<div flex>
+			<md-button class="md-raised" ng-click="vm.problemModal($event)">Post problems</md-button>
+		</div>
+		<div flex>
+			<md-button class="md-raised" ng-click="vm.solutionModal($event)">Post solutions</md-button>
+		</div>
+		</div>
 	</div>
 
+<div flex>
+		<md-button class="md-raised" ng-click="gm.logout()" ng-show="_user.id">Logout</md-button>
+</div>
 	
