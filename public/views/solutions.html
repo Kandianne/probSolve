@@ -9,35 +9,45 @@
 		<input flex="60" placeholder="Search Solutions">
 	</div>
 
-	<div flex layout  ng-repeat="s in vm.solutions" layout-align="center" id="posts">
+	<div flex layout  layout-align="center"  ng-repeat="s in vm.solutions" id="posts">
 	<md-card flex="50">
 
+
+		<md-button class="md-raised">
+			<h2>{{s.title}}</h2>
+		</md-button>
+			<!-- <div layout>
+			<i>Posted By: {{p.postedBy.name}}</i>
+			<span flex></span>
+			<i>{{s.level}}</i>
+			</div> -->
 		<md-card-content>
-		<h2>{{s.title}}</h2>
+		
 		<p>{{s.description}}</p>
 		</md-card-content>
 		<md-card-footer>
-		Rating:{{s.level}}
 		</md-card-footer>
 		
-		<div>
+		<div layout>
 			<span ng-controller="DetailsController as vm">
 			<md-button ui-sref="SolutionDetail({solId:s._id})">See More</md-button>
 			</span>
 			<span flex></span>
-			<md-button style="font-size:1.9em;" ng-click="vm.openMenu($mdOpenMenu, $event)">
+			<md-button style="font-size:1.9em;" class="options">
 			<i class="fa fa-caret-down"></i>
 			</md-button>
 
+		</div>
+		<div layout class="updateDelete" style="display:none;">
 			<md-button>Edit</md-button>
+			<span flex></span>
 			<md-button ng-click="vm.deleteSolution($index)">Delete</md-button>
 		</div>
-
 	</md-card>
 	<md-card flex="20">
 		
 		<md-card-content>
-			<h1>Problems this solution can solve</h1>
+			<h1>Related Problems</h1>
 			<div ng-controller="HomeController as vm">
 				<i id="tags" ng-repeat="p in vm.problems">{{p.title}}</i>
 			</div>

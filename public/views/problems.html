@@ -9,30 +9,41 @@
 		<input flex="60" flex placeholder="Search Problems">
 	</div>
 
-	<div  flex layout layout-align="center" ng-repeat="p in vm.problems" id="posts">
+	<div flex layout layout-align="center" ng-repeat="p in vm.problems" id="posts">
 	<md-card  flex="50">
-		<md-button class="md-raised">{{p.postedBy.name}}</md-button>
+		<md-button class="md-raised">
+			<h2>{{p.title}}</h2>
+		</md-button>
+			<!-- <div layout>
+			<i>Posted By: {{p.postedBy.name}}</i>
+			<span flex></span>
+			<i>{{p.severity}}</i>
+			</div> -->
 		<md-card-content>
-		<h2>{{p.title}}&nbsp;{{p.level}}</h2>
+		
 				<p>{{p.description}}</p>
 		</md-card-content>
 		<md-card-footer>
-			Rating: {{p.severity}}
+			
 		</md-card-footer>
 		<div layout>
 			<span ng-controller="DetailsController as vm">
 			<md-button ui-sref="ProblemDetail({probId: p._id})">See More</md-button>
 			</span>
 			<span flex></span>
-			<md-button style="font-size:1.9em;" ng-click="vm.openMenu($mdOpenMenu, $event)">
+			<md-button class="options" style="font-size:1.9em;">
 			<i class="fa fa-caret-down"></i>
 			</md-button>
-			
 		</div>
+		<div layout class="updateDelete" style="display:none;">
+			<md-button>Edit</md-button>
+			<span flex></span>
+			<md-button ng-click="vm.deleteSolution($index)">Delete</md-button>
+		</div>
+
 
 	</md-card>
 	<md-card  flex="20">
-		
 		<md-card-content>
 			<h1>Possible Solutions</h1>
 			<div ng-controller="HomeController as vm">

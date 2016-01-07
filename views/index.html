@@ -18,15 +18,17 @@
 	<md-toolbar md-scroll-shrink ng-if="true">
     <div class="md-toolbar-tools">
       <h3>
-      <md-button class="md-button md-button-ripple homeButton" ui-sref="Home">PS {{gm.userLoggedIn.name}}</md-button>
+      <md-button class="homeButton" ui-sref="Home"><i class="fa fa-home"></i></md-button>
+      <md-button class="md-button md-button-ripple homeButton" ui-sref="Problems">All Problems</md-button>
+      <md-button class="md-button md-button-ripple homeButton" ui-sref="Solutions">All Solutions</md-button>
       </h3>
       <span flex></span>
       <div layout layout-sm="column">
 			<md-button ng-click="gm.loginModal($event)" ng-hide="_user.id">Login</md-button>
-			<md-button ng-click="gm.logout()" ng-show="_user.id">Logout</md-button>
 			<md-button href="api/user/auth/facebook" ng-hide="_user.id">Facebook Login</md-button>
 			<md-button class="loginBtn" ng-show="!_user.id" ng-click="gm.registerModal($event)">REGISTER</md-button>
-			<md-button class="md-button md-button-ripple homeButton" ng-show="_user.id" ui-sref="Profile">YOUR PROFILE</md-button>
+			<md-button class="md-button md-button-ripple homeButton" ng-show="_user.id" ui-sref="Profile">{{gm.userLoggedIn.name}}</md-button>
+			<md-button ng-click="gm.logout()" ng-show="_user.id">Logout</md-button>
 		</div>
 		
 		<!-- <div flex>

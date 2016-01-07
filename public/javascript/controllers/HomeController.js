@@ -65,12 +65,9 @@
 
 		
 		//==================EDIT AND DELETE TOGGLE======================
-		// var originatorEv;
-  //   	vm.openMenu = function($mdOpenMenu, ev) {
-  //   		console.log($mdOpenMenu);
-  //     		originatorEv = ev;
-  //     		$mdOpenMenu(ev);
-  //   		};
+		$(".options").click(function(){
+			$(".updateDelete").slideToggle("slow")
+		})
 
 	}
 })();
